@@ -1,0 +1,16 @@
+Moved to new project.
+
+RPC Types:
+  Unary:
+    Simple request response model
+  Server Streaming:
+    Client send one request and Server returns data in chunks
+      ex:
+        Amazon (search mobile and it will give multiple data)
+        Pagination
+  Client Streaming:
+    Client sends data in chunks
+      ex:
+        Upload large file in chunks on server.
+  Bi-directional Streaming:
+    combination of above two.
