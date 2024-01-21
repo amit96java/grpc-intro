@@ -46,6 +46,37 @@ public final class BankServiceGrpc {
     return getGetBalanceMethod;
   }
 
+  private static volatile io.grpc.MethodDescriptor<com.vinsguru.models.WithdrawRequest,
+      com.vinsguru.models.Money> getWithdrawMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "withdraw",
+      requestType = com.vinsguru.models.WithdrawRequest.class,
+      responseType = com.vinsguru.models.Money.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+  public static io.grpc.MethodDescriptor<com.vinsguru.models.WithdrawRequest,
+      com.vinsguru.models.Money> getWithdrawMethod() {
+    io.grpc.MethodDescriptor<com.vinsguru.models.WithdrawRequest, com.vinsguru.models.Money> getWithdrawMethod;
+    if ((getWithdrawMethod = BankServiceGrpc.getWithdrawMethod) == null) {
+      synchronized (BankServiceGrpc.class) {
+        if ((getWithdrawMethod = BankServiceGrpc.getWithdrawMethod) == null) {
+          BankServiceGrpc.getWithdrawMethod = getWithdrawMethod =
+              io.grpc.MethodDescriptor.<com.vinsguru.models.WithdrawRequest, com.vinsguru.models.Money>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.SERVER_STREAMING)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "withdraw"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.vinsguru.models.WithdrawRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  com.vinsguru.models.Money.getDefaultInstance()))
+              .setSchemaDescriptor(new BankServiceMethodDescriptorSupplier("withdraw"))
+              .build();
+        }
+      }
+    }
+    return getWithdrawMethod;
+  }
+
   /**
    * Creates a new async stub that supports all call types for the service
    */
@@ -95,10 +126,23 @@ public final class BankServiceGrpc {
   public interface AsyncService {
 
     /**
+     * <pre>
+     *unary
+     * </pre>
      */
     default void getBalance(com.vinsguru.models.BalanceCheckRequest request,
         io.grpc.stub.StreamObserver<com.vinsguru.models.Balance> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetBalanceMethod(), responseObserver);
+    }
+
+    /**
+     * <pre>
+     *server-side streaming
+     * </pre>
+     */
+    default void withdraw(com.vinsguru.models.WithdrawRequest request,
+        io.grpc.stub.StreamObserver<com.vinsguru.models.Money> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getWithdrawMethod(), responseObserver);
     }
   }
 
@@ -130,11 +174,25 @@ public final class BankServiceGrpc {
     }
 
     /**
+     * <pre>
+     *unary
+     * </pre>
      */
     public void getBalance(com.vinsguru.models.BalanceCheckRequest request,
         io.grpc.stub.StreamObserver<com.vinsguru.models.Balance> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getGetBalanceMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     * <pre>
+     *server-side streaming
+     * </pre>
+     */
+    public void withdraw(com.vinsguru.models.WithdrawRequest request,
+        io.grpc.stub.StreamObserver<com.vinsguru.models.Money> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncServerStreamingCall(
+          getChannel().newCall(getWithdrawMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -155,10 +213,24 @@ public final class BankServiceGrpc {
     }
 
     /**
+     * <pre>
+     *unary
+     * </pre>
      */
     public com.vinsguru.models.Balance getBalance(com.vinsguru.models.BalanceCheckRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getGetBalanceMethod(), getCallOptions(), request);
+    }
+
+    /**
+     * <pre>
+     *server-side streaming
+     * </pre>
+     */
+    public java.util.Iterator<com.vinsguru.models.Money> withdraw(
+        com.vinsguru.models.WithdrawRequest request) {
+      return io.grpc.stub.ClientCalls.blockingServerStreamingCall(
+          getChannel(), getWithdrawMethod(), getCallOptions(), request);
     }
   }
 
@@ -179,6 +251,9 @@ public final class BankServiceGrpc {
     }
 
     /**
+     * <pre>
+     *unary
+     * </pre>
      */
     public com.google.common.util.concurrent.ListenableFuture<com.vinsguru.models.Balance> getBalance(
         com.vinsguru.models.BalanceCheckRequest request) {
@@ -188,6 +263,7 @@ public final class BankServiceGrpc {
   }
 
   private static final int METHODID_GET_BALANCE = 0;
+  private static final int METHODID_WITHDRAW = 1;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -209,6 +285,10 @@ public final class BankServiceGrpc {
         case METHODID_GET_BALANCE:
           serviceImpl.getBalance((com.vinsguru.models.BalanceCheckRequest) request,
               (io.grpc.stub.StreamObserver<com.vinsguru.models.Balance>) responseObserver);
+          break;
+        case METHODID_WITHDRAW:
+          serviceImpl.withdraw((com.vinsguru.models.WithdrawRequest) request,
+              (io.grpc.stub.StreamObserver<com.vinsguru.models.Money>) responseObserver);
           break;
         default:
           throw new AssertionError();
@@ -235,6 +315,13 @@ public final class BankServiceGrpc {
               com.vinsguru.models.BalanceCheckRequest,
               com.vinsguru.models.Balance>(
                 service, METHODID_GET_BALANCE)))
+        .addMethod(
+          getWithdrawMethod(),
+          io.grpc.stub.ServerCalls.asyncServerStreamingCall(
+            new MethodHandlers<
+              com.vinsguru.models.WithdrawRequest,
+              com.vinsguru.models.Money>(
+                service, METHODID_WITHDRAW)))
         .build();
   }
 
@@ -284,6 +371,7 @@ public final class BankServiceGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new BankServiceFileDescriptorSupplier())
               .addMethod(getGetBalanceMethod())
+              .addMethod(getWithdrawMethod())
               .build();
         }
       }
