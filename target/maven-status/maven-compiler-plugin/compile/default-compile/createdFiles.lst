@@ -1,5 +1,6 @@
 com\vinsguru\models\BankServiceGrpc$BankServiceBaseDescriptorSupplier.class
 com\vinsguru\models\BalanceCheckRequest.class
+com\vinsguru\models\DepositRequestOrBuilder.class
 com\vinsguru\models\BankServiceGrpc$3.class
 com\vinsguru\models\BankServiceGrpc$BankServiceMethodDescriptorSupplier.class
 com\vinsguru\models\Balance$1.class
@@ -10,6 +11,7 @@ com\vinsguru\server\Sec03gRPCIntro\BankService.class
 com\vinsguru\models\BankServiceGrpc$BankServiceFileDescriptorSupplier.class
 com\vinsguru\models\BankServiceGrpc$BankServiceImplBase.class
 com\vinsguru\models\Money$Builder.class
+com\vinsguru\models\DepositRequest$Builder.class
 com\vinsguru\models\Balance.class
 com\vinsguru\models\BalanceCheckRequest$1.class
 com\vinsguru\models\BankServiceGrpc.class
@@ -19,11 +21,13 @@ com\vinsguru\models\BalanceCheckRequestOrBuilder.class
 com\vinsguru\models\WithdrawRequestOrBuilder.class
 com\vinsguru\models\Money$1.class
 com\vinsguru\models\WithdrawRequest$Builder.class
+com\vinsguru\models\DepositRequest$1.class
 com\vinsguru\models\BankServiceOuterClass.class
 com\vinsguru\models\BalanceOrBuilder.class
 com\vinsguru\models\BankServiceGrpc$BankServiceStub.class
 com\vinsguru\models\BankServiceGrpc$BankServiceBlockingStub.class
 com\vinsguru\models\BankServiceGrpc$BankServiceFutureStub.class
+com\vinsguru\models\DepositRequest.class
 com\vinsguru\models\WithdrawRequest$1.class
 com\vinsguru\models\BalanceCheckRequest$Builder.class
 com\vinsguru\models\Money.class

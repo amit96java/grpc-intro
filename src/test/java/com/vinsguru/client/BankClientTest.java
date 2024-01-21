@@ -1,11 +1,9 @@
 package com.vinsguru.client;
 
-import com.vinsguru.models.Balance;
-import com.vinsguru.models.BalanceCheckRequest;
-import com.vinsguru.models.BankServiceGrpc;
-import com.vinsguru.models.WithdrawRequest;
+import com.vinsguru.models.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
+import io.grpc.stub.StreamObserver;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
@@ -64,6 +62,22 @@ public class BankClientTest {
         this.bankServiceStub.withdraw(withdrawRequest, new MoneyStreamingResponse(countDownLatch));
         countDownLatch.await();
 //        Uninterruptibles.sleepUninterruptibly(3, TimeUnit.SECONDS);
+
+    }
+
+    @Test
+    void cashStreamingRequest() throws InterruptedException {
+        CountDownLatch latch = new CountDownLatch(1);
+        //this is the object which client will send data in stream.
+        StreamObserver<DepositRequest> streamObserver = this.bankServiceStub.cashDeposit(new BalanceStreamObserver(latch));
+        for (int i = 0; i < 10; i++) {
+            DepositRequest depositRequest = DepositRequest.newBuilder().setAccountNumber(8).setAmount(10).build();
+            streamObserver.onNext(depositRequest);
+        }
+
+        //client is done to send data.
+        streamObserver.onCompleted();
+        latch.await();
 
     }
 }
