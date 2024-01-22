@@ -9,7 +9,7 @@ public class GrpcServer {
     public static void main(String[] args) throws IOException, InterruptedException {
         System.out.println("Server starting...");
         Server server = ServerBuilder.forPort(6565)
-                .intercept(new AuthInterceptor())
+//                .intercept(new AuthInterceptor())
                 .addService(new MetadataService())
                 .build();
         server.start();

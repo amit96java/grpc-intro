@@ -1,0 +1,6 @@
+gRPC - Error handling:
+  1) Error Channel:
+    a) Status Codes
+    b) Metadata
+  2) Data Channel:
+    a) OneOf

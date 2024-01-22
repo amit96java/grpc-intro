@@ -57,7 +57,7 @@ public class BankClientTest {
         CountDownLatch countDownLatch = new CountDownLatch(1);
         WithdrawRequest withdrawRequest = WithdrawRequest.newBuilder()
                 .setAccountNumber(9)
-                .setAmount(40)
+                .setAmount(41)
                 .build();
 
         this.bankServiceStub.withdraw(withdrawRequest, new MoneyStreamingResponse(countDownLatch));
