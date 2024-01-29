@@ -1,8 +1,8 @@
 package com.vinsguru.server.loadbalancing;
 
 import com.vinsguru.models.*;
-import com.vinsguru.server.rpctypes.AccountDatabase;
-import com.vinsguru.server.rpctypes.CashStreamingRequest;
+import com.vinsguru.server.rpctypes.streamingTypes.AccountDatabase;
+import com.vinsguru.server.rpctypes.streamingTypes.CashStreamingRequest;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 

@@ -1,10 +1,11 @@
-package com.vinsguru.server.rpctypes;
+package com.vinsguru.server.rpctypes.streamingTypes;
 
 import com.vinsguru.models.*;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
 
 public class BankService extends BankServiceGrpc.BankServiceImplBase{
+    //unary
     @Override
     public void getBalance(BalanceCheckRequest request, StreamObserver<Balance> responseObserver) {
         int accountNumber = request.getAccountNumber();
@@ -15,6 +16,8 @@ public class BankService extends BankServiceGrpc.BankServiceImplBase{
         responseObserver.onCompleted();
     }
 
+
+    //server-side streaming
     @Override
     public void withdraw(WithdrawRequest request, StreamObserver<Money> responseObserver) {
         int accountNumber = request.getAccountNumber();
@@ -41,6 +44,7 @@ public class BankService extends BankServiceGrpc.BankServiceImplBase{
         responseObserver.onCompleted();
     }
 
+    //client-side streaming
     @Override
     public StreamObserver<DepositRequest> cashDeposit(StreamObserver<Balance> responseObserver) {
         return new CashStreamingRequest(responseObserver);

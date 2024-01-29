@@ -1,4 +1,4 @@
-package com.vinsguru.server.rpctypes;
+package com.vinsguru.server.rpctypes.streamingTypes;
 
 import com.vinsguru.models.Balance;
 import com.vinsguru.models.DepositRequest;

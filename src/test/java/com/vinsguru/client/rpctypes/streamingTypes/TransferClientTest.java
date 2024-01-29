@@ -1,4 +1,4 @@
-package com.vinsguru.client.rpctypes;
+package com.vinsguru.client.rpctypes.streamingTypes;
 
 import com.vinsguru.models.TransferRequest;
 import com.vinsguru.models.TransferServiceGrpc;

@@ -1,6 +1,6 @@
 package com.vinsguru.client.deadline;
 
-import com.vinsguru.client.rpctypes.MoneyStreamingResponse;
+import com.vinsguru.client.rpctypes.streamingTypes.MoneyStreamingResponse;
 import com.vinsguru.models.Balance;
 import com.vinsguru.models.BalanceCheckRequest;
 import com.vinsguru.models.BankServiceGrpc;

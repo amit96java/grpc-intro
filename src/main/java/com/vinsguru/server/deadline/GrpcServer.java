@@ -1,6 +1,5 @@
 package com.vinsguru.server.deadline;
 
-import com.vinsguru.server.rpctypes.TransferService;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 

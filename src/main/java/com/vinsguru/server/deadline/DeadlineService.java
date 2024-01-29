@@ -2,8 +2,8 @@ package com.vinsguru.server.deadline;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.vinsguru.models.*;
-import com.vinsguru.server.rpctypes.AccountDatabase;
-import com.vinsguru.server.rpctypes.CashStreamingRequest;
+import com.vinsguru.server.rpctypes.streamingTypes.AccountDatabase;
+import com.vinsguru.server.rpctypes.streamingTypes.CashStreamingRequest;
 import io.grpc.Context;
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;

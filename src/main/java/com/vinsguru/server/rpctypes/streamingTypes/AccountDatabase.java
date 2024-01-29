@@ -1,4 +1,4 @@
-package com.vinsguru.server.rpctypes;
+package com.vinsguru.server.rpctypes.streamingTypes;
 
 import java.util.Map;
 import java.util.function.Function;

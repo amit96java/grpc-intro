@@ -1,4 +1,4 @@
-package com.vinsguru.server.rpctypes;
+package com.vinsguru.server.rpctypes.streamingTypes;
 
 import com.vinsguru.models.Account;
 import com.vinsguru.models.TransferRequest;

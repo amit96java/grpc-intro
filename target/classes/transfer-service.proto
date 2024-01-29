@@ -25,6 +25,7 @@ message TransferResponse {
   repeated Account accounts = 2;
 }
 
+// bi-directional streaming
 service TransferService {
   rpc transfer(stream TransferRequest) returns (stream TransferResponse);
 }

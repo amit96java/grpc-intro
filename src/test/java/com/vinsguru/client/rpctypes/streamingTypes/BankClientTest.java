@@ -1,4 +1,4 @@
-package com.vinsguru.client.rpctypes;
+package com.vinsguru.client.rpctypes.streamingTypes;
 
 import com.vinsguru.models.*;
 import io.grpc.ManagedChannel;
@@ -29,6 +29,7 @@ public class BankClientTest {
         System.out.println("Stubs are created...");
     }
 
+    // unary
     @Test
     void balanceTest() throws InterruptedException {
         BalanceCheckRequest checkRequest = BalanceCheckRequest.newBuilder()
@@ -52,6 +53,7 @@ public class BankClientTest {
 
     }
 
+    // server-side streaming
     @Test
     void withdrawAsyncTest() throws InterruptedException {
         CountDownLatch countDownLatch = new CountDownLatch(1);
@@ -66,6 +68,7 @@ public class BankClientTest {
 
     }
 
+    //client-side streaming
     @Test
     void cashStreamingRequest() throws InterruptedException {
         CountDownLatch latch = new CountDownLatch(1);

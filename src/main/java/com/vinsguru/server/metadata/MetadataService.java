@@ -1,17 +1,13 @@
 package com.vinsguru.server.metadata;
 
-import com.google.common.util.concurrent.Uninterruptibles;
 import com.vinsguru.models.*;
-import com.vinsguru.server.rpctypes.AccountDatabase;
-import com.vinsguru.server.rpctypes.CashStreamingRequest;
-import io.grpc.Context;
+import com.vinsguru.server.rpctypes.streamingTypes.AccountDatabase;
+import com.vinsguru.server.rpctypes.streamingTypes.CashStreamingRequest;
 import io.grpc.Metadata;
 import io.grpc.Status;
 import io.grpc.StatusRuntimeException;
 import io.grpc.protobuf.ProtoUtils;
 import io.grpc.stub.StreamObserver;
-
-import java.util.concurrent.TimeUnit;
 
 public class MetadataService extends BankServiceGrpc.BankServiceImplBase{
     @Override

@@ -1,4 +1,4 @@
-package com.vinsguru.server.rpctypes;
+package com.vinsguru.server.rpctypes.streamingTypes;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
